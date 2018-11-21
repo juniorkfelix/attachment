@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'^$', views.home, name='home'),
 	url(r'^company/(?P<pk>\d+)/$', views.company_desc, name='company_desc'),
     url(r'^admin/', admin.site.urls),
-    url(r'^company/index/$', views.index, name='index')
+    url(r'^company/index/$', views.index, name='index'),
+    url(r'^content/$', views.content_get, name='content_get')
     
 ]

@@ -25,9 +25,12 @@ def index(request):
     return render(request, 'newpost.html',{'index': company, 'form':form},)
 
 def content_get(request):
+    company = Company.objects.order_by('id')
     if request.method == 'POST':
         form=newcompanyform(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('home.html')
-
+            return redirect('home')
+    else:
+        form = newcompanyform()
+    return render(request, 'newpost.html',{'index': company, 'form':form},)    
