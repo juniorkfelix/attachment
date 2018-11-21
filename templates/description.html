@@ -1,0 +1,39 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ company.company_name }} - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Attachments</a></li>
+  <li class="breadcrumb-item active">{{ company.company_name }}</li>
+{% endblock %}
+
+{% block content %}
+    <!-- just leaving it empty for now. we will add core here soon. -->
+
+    <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Job Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ company.company_name }} - {{ block.super }}
+          <tr>
+            <td>
+              <a href="{% url 'company_desc' company.pk %}">{{ company.company_name }}</a>
+            </td>
+            <td>{{ company.Description }}</td>
+            <td>{{ company.job_title }}</td>
+          </tr>
+        
+      </tbody>
+    </table>
+
+{% endblock %}

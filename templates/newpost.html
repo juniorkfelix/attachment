@@ -1,0 +1,23 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Add a new post{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item active">New topic</li>
+{% endblock %}
+
+{% block content %}
+    {% for i in company %}                                                                                       
+    <li>{{ i }}</li> 
+    {% endfor %}       
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+
+    <button type="submit" class="btn btn-success" value="submit">Post</button>
+  </form>
+{% endblock %}
+

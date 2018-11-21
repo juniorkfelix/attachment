@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Attachments</li> <br/>
+  <a href ="{% url 'index' %}"> click here to post an attachment slot</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Job Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for company in companies %}
+          <tr>
+            <td>
+              <a href="{% url 'company_desc' company.pk %}">{{ company.company_name }}</a>
+            </td>
+            <td>{{ company.Description }}</td>
+            <td>{{ company.job_title }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
+
+
+  
